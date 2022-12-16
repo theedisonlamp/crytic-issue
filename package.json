@@ -1,0 +1,25 @@
+{
+  "name": "crytic-issue",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "The Edison Lamp <daniel@usual.company>",
+  "license": "MIT",
+  "scripts": {
+    "preinstall": "python -m venv .venv && . .venv/bin/activate && pip install slither-analyzer",
+    "slither": "slither . --filter-paths \"lib|test\" --exclude naming-convention",
+    "solhint": "solhint 'solidity/src/**/*.sol' --fix",
+    "solhint:check": "solhint 'solidity/src/**/*.sol'",
+    "precommit": "lint-staged",
+    "test": "forge test",
+    "build": "forge build"
+  },
+  "devDependencies": {
+    "lint-staged": "^13.1.0",
+    "solhint": "^3.3.7"
+  },
+  "lint-staged": {
+    "*.sol": [
+      "solhint --fix && forge fmt -"
+    ]
+  }
+}
