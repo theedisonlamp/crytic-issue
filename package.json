@@ -5,7 +5,7 @@
   "author": "The Edison Lamp <daniel@usual.company>",
   "license": "MIT",
   "scripts": {
-    "preinstall": "python -m venv .venv && . .venv/bin/activate && pip install slither-analyzer && pip install -U https://github.com/crytic/crytic-compile/archive/refs/heads/dev-fix-foundry-options.zip",
+    "preinstall": "python -m venv .venv && . .venv/bin/activate && pip install slither-analyzer &&  pip uninstall crytic-compile && pip install -U https://github.com/crytic/crytic-compile/archive/refs/heads/dev-fix-foundry-options.zip",
     "slither": "slither . --filter-paths \"lib|test\" --exclude naming-convention",
     "solhint": "solhint 'solidity/src/**/*.sol' --fix",
     "solhint:check": "solhint 'solidity/src/**/*.sol'",
