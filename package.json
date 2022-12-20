@@ -5,7 +5,10 @@
   "author": "The Edison Lamp <daniel@usual.company>",
   "license": "MIT",
   "scripts": {
-    "preinstall": "python -m venv .venv && . .venv/bin/activate && pip install slither-analyzer && yes | pip uninstall crytic-compile && pip install -U https://github.com/crytic/crytic-compile/archive/refs/heads/dev-fix-foundry-options.zip",
+    "preinstall": "python -m venv .venv && . .venv/bin/activate",
+    "install": "pip install slither-analyzer && yes | pip uninstall crytic-compile && pip install -U https://github.com/crytic/crytic-compile/archive/refs/heads/dev-fix-foundry-options.zip",
+    "postinstall": "forge remappings > remappings.txt",
+    "prepare": "husky install",
     "slither": "slither . --filter-paths \"lib|test\" --exclude naming-convention",
     "solhint": "solhint 'solidity/src/**/*.sol' --fix",
     "solhint:check": "solhint 'solidity/src/**/*.sol'",
@@ -14,6 +17,7 @@
     "build": "forge build"
   },
   "devDependencies": {
+    "husky": "^8.0.2",
     "lint-staged": "^13.1.0",
     "solhint": "^3.3.7"
   },

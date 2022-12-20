@@ -1,7 +1,7 @@
 [profile.default]
 src = 'solidity/src'
 out = 'solidity/out'
-cache_path = 'solidity/cache'
+# cache_path = 'solidity/cache'
 broadcast = 'solidity/broadcast'
 test = 'solidity/test'
 libs = ['solidity/lib']
